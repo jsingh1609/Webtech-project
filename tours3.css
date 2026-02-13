@@ -6,9 +6,9 @@
 }
 
 html, body {
-    height: 100%;                  /* Make body take full viewport height */
+    height: 100%;
     width: 100%;
-    overflow-x: hidden;            /* Prevent horizontal scroll */
+    overflow-x: hidden;
 }
 
 body {
@@ -19,20 +19,20 @@ body {
     position: relative;
 }
 
-/* Full-screen background image – now covers everything perfectly */
+/* Full-screen background image */
 .bc {
-    position: fixed;               /* Fixed instead of absolute – stays full viewport */
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;                  /* Full viewport width */
-    height: 100vh;                 /* Full viewport height */
-    object-fit: cover;             /* Crops to fill without distortion */
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
     object-position: center;
     z-index: -2;
-    filter: blur(1px) brightness(0.7); /* Slight blur + darken for text readability */
+    filter: blur(1px) brightness(0.7);
 }
 
-/* Navigation – semi-transparent for contrast */
+/* Navigation */
 nav {
     background-color: rgba(51, 51, 51, 0.7);
     backdrop-filter: blur(5px);
@@ -66,11 +66,11 @@ nav a:hover {
     color: white;
 }
 
-/* Content wrapper – semi-transparent for readability over image */
+/* Wrapper */
 .wrapper {
     width: 90%;
     max-width: 550px;
-    margin: 120px auto 50px;       /* Space from top nav */
+    margin: 120px auto 50px;
     padding: 40px 30px;
     background: rgba(0, 0, 0, 0.55);
     backdrop-filter: blur(8px);
@@ -84,7 +84,7 @@ nav a:hover {
     text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
 }
 
-/* Form elements – better contrast */
+/* Form styling */
 label {
     display: block;
     margin: 20px 0 8px;
@@ -111,6 +111,24 @@ input::placeholder {
     color: rgba(255,255,255,0.6);
 }
 
+/* Select dropdown - make text visible */
+select {
+    color: white;                    /* Text color when closed */
+    background: rgba(255,255,255,0.08);
+}
+
+select option {
+    background-color: white;         /* White background for dropdown options */
+    color: black;                    /* Black text inside dropdown for readability */
+    padding: 10px;                   /* Better spacing */
+}
+
+select option:checked,
+select option:hover {
+    background-color: #0066cc;       /* Blue highlight when selected/hovered */
+    color: white;
+}
+
 /* Submit button */
 .submit {
     font-size: 1.6rem;
@@ -125,12 +143,19 @@ input::placeholder {
     transition: all 0.3s ease;
 }
 
-.submit:hover {
+.submit:hover:not(:disabled) {
     transform: translateY(-4px);
     box-shadow: 0 12px 25px rgba(244, 67, 54, 0.5);
 }
 
-/* Responsive for mobile */
+/* Disabled submit button */
+.submit:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: linear-gradient(135deg, #888, #666);
+}
+
+/* Responsive */
 @media (max-width: 600px) {
     .wrapper {
         margin: 100px 20px 40px;
