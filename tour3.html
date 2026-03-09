@@ -20,8 +20,7 @@
     <div class="wrapper">
         <h1>CONFIRM BOOKING</h1>
 
-        <form action="https://formspree.io/f/myknkkpb" method="POST">
-            <input type="hidden" name="_next" value="https://webtech-project-rtvs.vercel.app/tour4.html">
+        <form id="tourForm">
 
             <label for="fname">First Name</label><br>
             <input type="text" name="first_name" id="fname" required><br><br>
@@ -57,6 +56,20 @@
             <button type="submit" class="submit">Submit</button>
         </form>
     </div>
+
+    <script>
+        const form = document.getElementById('tourForm');
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const data = new FormData(form);
+            await fetch('https://formspree.io/f/myknkkpb', {
+                method: 'POST',
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            });
+            window.location.href = 'https://webtech-project-rtvs.vercel.app/tour4.html';
+        });
+    </script>
 
 </body>
 </html>
