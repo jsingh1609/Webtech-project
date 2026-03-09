@@ -20,23 +20,22 @@
     <div class="wrapper">
         <h1>CONFIRM BOOKING</h1>
 
-        <form id="bookingForm">
+        <form action="https://formspree.io/f/myknkkpb" method="POST">
             <label for="fname">First Name</label><br>
-            <input type="text" id="fname" required><br><br>
+            <input type="text" name="first_name" id="fname" required><br><br>
 
             <label for="lname">Last Name</label><br>
-            <input type="text" id="lname" required><br><br>
+            <input type="text" name="last_name" id="lname" required><br><br>
 
             <label for="dob">Date of Birth</label><br>
-            <input type="date" id="dob" required><br><br>
+            <input type="date" name="date_of_birth" id="dob" required><br><br>
 
             <label for="email">E-mail ID</label><br>
-            <input type="email" id="email" placeholder="Please enter email" 
-                   pattern=".+@gmail\.com" title="Email must end with @gmail.com" required>
-            <span id="emailError" style="color: #ff6b6b; font-size: 0.9rem;"></span><br><br>
+            <input type="email" name="email" id="email" placeholder="Please enter email" required>
+            <br><br>
 
             <label for="destination">Select Destination</label><br>
-            <select id="destination" required>
+            <select name="destination" id="destination" required>
                 <option value="">-- Select --</option>
                 <option value="Chota">Chhota-Imambara</option>
                 <option value="Ajmer">Ajmer</option>
@@ -51,11 +50,9 @@
             </select><br><br>
 
             <label for="people">Number of People</label><br>
-            <input type="number" id="people" min="1" max="100" required><br><br>
+            <input type="number" name="number_of_people" id="people" min="1" max="100" required><br><br>
 
-            <button type="button" class="submit" id="submitBtn" disabled>
-                Submit
-            </button>
+            <button type="submit" class="submit">Submit</button>
         </form>
     </div>
 
