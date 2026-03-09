@@ -58,56 +58,5 @@
         </form>
     </div>
 
-    <!-- JavaScript to enable/disable Submit button -->
-    <script>
-        const form = document.getElementById('bookingForm');
-        const submitBtn = document.getElementById('submitBtn');
-        const emailInput = document.getElementById('email');
-        const emailError = document.getElementById('emailError');
-
-        function checkForm() {
-            // Get all required fields
-            const requiredFields = form.querySelectorAll('[required]');
-            let allFilled = true;
-
-            // Check every required field has value
-            requiredFields.forEach(field => {
-                if (!field.value.trim()) {
-                    allFilled = false;
-                }
-            });
-
-            // Extra check for email pattern
-            const emailValid = emailInput.checkValidity();
-
-            // Enable button only if all fields filled + valid email
-            submitBtn.disabled = !(allFilled && emailValid);
-
-            // Visual feedback for email
-            if (emailInput.value && !emailValid) {
-                emailError.textContent = "Email must end with @gmail.com";
-            } else {
-                emailError.textContent = "";
-            }
-
-            // Change button appearance
-            submitBtn.style.opacity = submitBtn.disabled ? "0.5" : "1";
-            submitBtn.style.cursor = submitBtn.disabled ? "not-allowed" : "pointer";
-        }
-
-        // Check on every input change
-        form.addEventListener('input', checkForm);
-        form.addEventListener('change', checkForm);
-
-        // Initial check
-        checkForm();
-
-        // Redirect when clicked (only if enabled)
-        submitBtn.addEventListener('click', () => {
-            if (!submitBtn.disabled) {
-                window.location.href = 'tour4.html';
-            }
-        });
-    </script>
 </body>
 </html>
